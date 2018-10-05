@@ -1,0 +1,36 @@
+CREATE DATABASE mydp
+  OWNER Postgres;
+CREATE TABLE  employees(
+  id SERIAL primary key ,
+  name varchar(50) NOT NULL ,
+  salary integer default 10000
+);
+SELECT * FROM employees;
+
+insert  INTO employees(name,salary) VALUES ('SAM',5000);
+insert  INTO employees(name,salary) VALUES ('SAM',4000);
+
+DELETE FROM employees where  if=1;
+
+
+CREATE TABLE employees_copy (
+  LIKE employees
+);
+SELECT * FROM employees_copy;
+
+
+DROP TABLE employees_copy;
+
+
+ALTER TABLE employees
+  ADD COLUMN department varchar(50) NOT NULL DEFAULT 'IT';
+
+
+ALTER TABLE employees
+    ADD COLUMN created_at TIMESTAMP WITH TIME ZONE;
+SELECT * FROM employees;
+INSERT INTO employees(name, salary,department,created_at)
+VALUES ('JOHN',500,'s&r',now());
+
+
+
